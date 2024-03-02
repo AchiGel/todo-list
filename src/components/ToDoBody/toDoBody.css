@@ -1,5 +1,6 @@
 main {
   width: 430px;
+  max-width: 90%;
   border-radius: 10px;
   background: #fff;
   overflow: hidden;
@@ -9,6 +10,29 @@ main {
   height: 202px;
   background-image: url(../../assets/87c71038638480240b581fd1875afe7e.jpg);
   background-size: cover;
+}
+
+.overlay {
+  background-color: #0d0d0d5e;
+  height: 100%;
+  width: 100%;
+  padding: 28px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.todo-background h2 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.todo-background h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .todo-list-body {
@@ -27,6 +51,10 @@ main {
   width: 80%;
   max-width: 275px;
   padding: 10px 12px;
+  border-radius: 5px;
+  background: #ebeff2;
+  border: none;
+  outline: none;
 }
 
 .todo-list-body form div {
@@ -35,6 +63,14 @@ main {
 
 .todo-list-body form div button {
   padding: 10px;
+  border-radius: 5px;
+  background: #20eeb0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  width: 100%;
 }
 .todo-list {
   display: flex;
@@ -48,4 +84,36 @@ section {
 
 img {
   width: 100%;
+}
+
+.todo-item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item-title {
+  color: #0d0d0d;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.todo-item-time {
+  color: #888;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.todo-item-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.todo-item-delete {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
 }

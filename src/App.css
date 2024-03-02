@@ -11,3 +11,15 @@
   justify-content: center;
   gap: 322px;
 }
+
+@media (max-width: 1024px) {
+  .App {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+}
