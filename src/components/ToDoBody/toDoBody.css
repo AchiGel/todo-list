@@ -1,0 +1,51 @@
+main {
+  width: 430px;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.todo-background {
+  height: 202px;
+  background-image: url(../../assets/87c71038638480240b581fd1875afe7e.jpg);
+  background-size: cover;
+}
+
+.todo-list-body {
+  padding: 23px 29px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.todo-list-body form {
+  display: flex;
+  gap: 11px;
+}
+
+.todo-list-body form input {
+  width: 80%;
+  max-width: 275px;
+  padding: 10px 12px;
+}
+
+.todo-list-body form div {
+  width: 88px;
+}
+
+.todo-list-body form div button {
+  padding: 10px;
+}
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+section {
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
