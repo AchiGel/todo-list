@@ -15,13 +15,19 @@ function ToDoBody() {
     if (toDoListItem === "") {
       return;
     }
-    setToDoList([...toDoList, toDoListItem]);
+    setToDoList([...toDoList, { text: toDoListItem, completed: false }]);
     setToDoListItem("");
   }
 
   function deleteToDoItem(index) {
     const updateTasks = toDoList.filter((el, i) => i !== index);
     setToDoList(updateTasks);
+  }
+
+  function completedStatus(index) {
+    const updateList = [...toDoList];
+    updateList[index].completed = !updateList[index].completed;
+    setToDoList(updateList);
   }
 
   const now = new Date();
@@ -66,11 +72,21 @@ function ToDoBody() {
             {toDoList.map((item, index) => (
               <li className="todo-item" key={index}>
                 <div>
-                  <span className="todo-item-title">{item}</span>
+                  <span
+                    className={item.completed ? "checked" : "todo-item-title"}
+                  >
+                    {item.text}
+                  </span>
                   <span className="todo-item-time"></span>
                 </div>
                 <div className="todo-item-icons">
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    checked={item.completed}
+                    onChange={() => {
+                      completedStatus(index);
+                    }}
+                  />
                   <button
                     onClick={() => deleteToDoItem(index)}
                     className="todo-item-delete"

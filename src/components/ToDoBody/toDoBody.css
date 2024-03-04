@@ -99,6 +99,10 @@ img {
   font-weight: 500;
 }
 
+.checked {
+  text-decoration: line-through;
+}
+
 .todo-item-time {
   color: #888;
   font-size: 14px;
