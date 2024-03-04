@@ -1,10 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./toDoBody.css";
 
 function ToDoBody() {
   const [toDoList, setToDoList] = useState([]);
 
   const [toDoListItem, setToDoListItem] = useState("");
+
+  const [currentTime, setCurrentTime] = useState(getCurrentTime());
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("toDoList");
+    if (storedTasks) {
+      setToDoList(JSON.parse(storedTasks));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
+  }, [toDoList]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(getCurrentTime());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  function getCurrentTime() {
+    const now = new Date();
+
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+
+    return `${hour}:${minutes}`;
+  }
 
   function newListItem(e) {
     setToDoListItem(e.target.value);
@@ -32,8 +62,6 @@ function ToDoBody() {
 
   const now = new Date();
 
-  const hour = now.getHours();
-  const minutes = now.getMinutes();
   const day = now.getDay();
   const date = now.getDate();
 
@@ -52,7 +80,7 @@ function ToDoBody() {
       <section className="todo-background">
         <div className="overlay">
           <h3>{`${daysOfWeek[day]} ${date}`}</h3>
-          <h2>{`${hour}:${minutes}`}</h2>
+          <h2>{currentTime}</h2>
         </div>
       </section>
       <section className="todo-list-body">
